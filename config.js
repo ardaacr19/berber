@@ -1,0 +1,3 @@
+window.SUPABASE_URL="https://xfwzmegflvqfeaxysqnm.supabase.co";
+window.SUPABASE_KEY="sb_publishable_oJzeXYgnsw7IIkQA6lcj1w_0X6mnuz";
+window.SHOP_CONFIG={shopName:"Soner İpek Erkek Kuaförü",step:30,daysAhead:14,hours:{0:[10,18],1:null,2:[9,21],3:[9,21],4:[9,21],5:[9,21],6:[9,21]},services:[{id:"sac",name:"Saç Kesimi",min:30,price:400,desc:"Yıkama ve şekillendirme dahil"},{id:"sakal",name:"Sakal Tıraşı",min:30,price:250,desc:"Ustura, sıcak havlu"},{id:"sacsakal",name:"Saç + Sakal",min:60,price:600,desc:"En çok tercih edilen"},{id:"cocuk",name:"Çocuk Kesimi",min:30,price:300,desc:"12 yaş altı"},{id:"cilt",name:"Cilt Bakımı",min:30,price:350,desc:"Maske, buhar, siyah nokta"},{id:"damat",name:"Damat Paketi",min:120,price:2500,desc:"Saç, sakal, cilt bakımı, fön"}]};

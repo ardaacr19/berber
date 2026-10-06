@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Soner İpek Kuaför · Online Randevu</title>
+<meta name="description" content="Soner İpek Erkek Kuaförü: saç kesimi, sakal tıraşı, cilt bakımı. Online randevu al, sıra bekleme.">
+<meta name="theme-color" content="#183328">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">SONER <span>İPEK</span></a>
+    <nav class="nav" aria-label="Menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#randevularim">Randevularım</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#panel" id="navPanel" hidden>Panel</a>
+      <a class="cta" href="#randevu">Randevu Al</a>
+    </nav>
+  </div>
+  <div class="pole" aria-hidden="true"></div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Erkek Kuaförü · 2014'ten beri</div>
+      <h1>Soner <em>İpek</em></h1>
+      <p class="lead">Ustura ile sakal, makasla şekillendirilen kesim, sıcak havlu. Sıra beklemeden, seçtiğin saatte koltuktasın.</p>
+      <div class="hero-row">
+        <a class="btn btn-brass" href="#randevu">Randevu Al</a>
+        <a class="btn btn-ghost" href="#hizmetler">Fiyat Listesi</a>
+      </div>
+    </div>
+    <div class="status" aria-live="polite">
+      <div class="row"><span>Durum</span><span id="openChip" class="chip open">Açık</span></div>
+      <div class="row"><span>Bugün</span><b id="todayHours">–</b></div>
+      <div class="row"><span>İlk boş saat</span><b id="nextFree">Yükleniyor…</b></div>
+      <div class="row"><span>Telefon</span><b>0 (532) 000 00 00</b></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="hizmetler">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Fiyat Listesi</div><h2>Hizmetler</h2></div>
+        <p>Fiyatlara KDV dahildir. Süreler ortalamadır; randevu sistemi süreyi otomatik ayırır.</p>
+      </div>
+      <div class="board" id="board"></div>
+    </div>
+  </section>
+
+  <section id="randevu">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Online Randevu</div><h2>Randevu Al</h2></div>
+        <p>Hizmeti, günü ve saati seç; bilgilerini yaz. Randevun anında kesinleşir.</p>
+      </div>
+      <div id="bookBanner" class="banner" hidden></div>
+      <div class="book">
+        <div>
+          <div class="step">
+            <div class="step-h"><span class="n">1</span><h3>Hizmet</h3></div>
+            <div class="opts" id="svcOpts"></div>
+          </div>
+          <div class="step">
+            <div class="step-h"><span class="n">2</span><h3>Gün</h3></div>
+            <div class="days" id="dayOpts"></div>
+          </div>
+          <div class="step">
+            <div class="step-h"><span class="n">3</span><h3>Saat</h3></div>
+            <div class="times" id="timeOpts"></div>
+            <p class="note" id="timeNote"></p>
+          </div>
+          <div class="step">
+            <div class="step-h"><span class="n">4</span><h3>Bilgilerin</h3></div>
+            <form class="form" id="bookForm" novalidate>
+              <label for="fName">Ad Soyad<input id="fName" autocomplete="name" placeholder="Ahmet Yılmaz" required></label>
+              <label for="fPhone">Telefon<input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx" required></label>
+              <label class="full" for="fNote">Not (isteğe bağlı)<textarea id="fNote" placeholder="Örn. kısa kesim, yanlar 2 numara"></textarea></label>
+              <p class="err full" id="formErr" hidden></p>
+            </form>
+          </div>
+        </div>
+        <aside class="summary" id="summary" aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="randevularim">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Hesabın</div><h2>Randevularım</h2></div>
+        <p>Aldığın randevular burada görünür. Gelemeyeceksen iptal et, saat başkasına açılsın.</p>
+      </div>
+      <div class="list" id="mine"><div class="empty">Henüz randevun yok. İlk randevunu yukarıdan alabilirsin.</div></div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Bize Uğra</div><h2>Saatler &amp; İletişim</h2></div>
+      </div>
+      <div class="info">
+        <table class="hours" id="hoursTbl" aria-label="Çalışma saatleri"></table>
+        <div class="contact">
+          <div><div class="k">Adres</div><div class="v">Caferağa Mah. Moda Cad. No:12, Kadıköy / İstanbul</div></div>
+          <div><div class="k">Telefon</div><div class="v"><span id="phoneTxt">0 (532) 000 00 00</span><button class="mini" type="button" id="copyPhone">Kopyala</button></div></div>
+          <div><div class="k">Instagram</div><div class="v">@soneripek.barber</div></div>
+          <p class="note">Adres, telefon ve fiyatlar örnektir; kendi bilgilerinle değiştir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Sadece Berber</div><h2>Berber Paneli</h2></div>
+        <p>Gelen randevular, günlük durum ve saat kapatma.</p>
+      </div>
+      <div id="panelLogin" hidden></div>
+      <div id="panelBody" hidden>
+        <div class="stats" id="stats"></div>
+        <div class="panel-grid">
+          <div>
+            <div class="days" id="pDays" style="margin-bottom:16px"></div>
+            <div class="list" id="pList"></div>
+          </div>
+          <div class="blk">
+            <h3 style="font:700 1rem var(--f-body);margin-bottom:6px">Saat kapat / aç</h3>
+            <p class="note" style="margin-bottom:12px">Boş bir saate dokununca kapanır (mola, izin). Tekrar dokununca açılır.</p>
+            <div class="times" id="pTimes"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Soner İpek Erkek Kuaförü</span><span>Randevu sistemi 7/24 açık</span></div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
